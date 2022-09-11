@@ -2,11 +2,10 @@
 
 class Conta():
     num = 1011
-    def __init__(self, tel):
+    def __init__(self):
         self.__numero = Conta.num
-        self.__numero += 1
+        Conta.num += 1
         self.__saldo = 0
-        self.__tel = tel
 
     def getNumero(self):
         return self.__numero
@@ -14,14 +13,22 @@ class Conta():
     def getSaldo(self):
         return self.__saldo
 
-    def getTel(self):
-        return self.__tel
+    def sacar(self, valor:float):
+        if valor > 0 and valor >= self.__saldo:
+            print('Valor indisponível')
+        
+        elif valor > 0 and valor <= self.__saldo:
+            self.__saldo -= valor
+            
+        else:
+            print('Entrada não reconhecida!')
     
-    def setTel(self, tel):
-        self.__tel = tel
-
-    def sacar(self, valor:int):
-        self.valor = int(input('Digite o valor: \n'))
-    
-    def sacar(self, valor:int):
-        self.valor = int(input('Digite o valor: \n'))
+    def depositar(self, valor:float):
+        if valor > 0:
+            self.__saldo += valor
+        
+        elif valor <= 0:
+            print('Erro\nO valor inserido é inválido!')
+        
+        else:
+            print('Entrada não reconhecida!')
