@@ -31,4 +31,4 @@ class Conta():
             print('Erro\nO valor inserido é inválido!')
         
         else:
-            print('Entrada não reconhecida!')
+            print('Entrada não reconhecida!') 

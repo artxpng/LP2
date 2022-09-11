@@ -9,4 +9,4 @@ class titularPF(Titular):
         return self.getDoc()
 
     def setCnpj(self, cnpj):
-        self.setDoc(cnpj)
+        self.setDoc(cnpj) 
