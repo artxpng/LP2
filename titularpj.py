@@ -1,7 +1,7 @@
 #coding utf-8
 from titular import Titular
 
-class titularPF(Titular):
+class titularPJ(Titular):
     def __init__(self, nome:str, idade:int, cnpj:int, tel:int):
         super().__init__(nome, idade, cnpj, tel)
     
