@@ -10,3 +10,4 @@ class titularPF(Titular):
 
     def setCpf(self, cpf):
         self.setDoc(cpf) 
+ 
