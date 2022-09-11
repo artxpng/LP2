@@ -1,4 +1,4 @@
-`__(vale para qualquer tipo de arquivo com qualquer extensão)__`
+__`(vale para qualquer tipo de arquivo com qualquer extensão)`__
 
 Para __inicializar__ o repositório
 _`git init`_
