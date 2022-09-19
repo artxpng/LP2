@@ -6,7 +6,7 @@ _`git init`_
 Foi criada uma pastinha __`.git`__ (é ali que toda a mágica acontece)
 
  
-para colocar __apenas__ o arquivo modificado na área de __`stagging`__
+para colocar __apenas__ o arquivo na área de stagging
 _`git add README.md`_
 
 
@@ -14,7 +14,7 @@ Cria uma __nova branch__ para o projeto e já entra nela com o checkout
 _`git checkout -b "novo-botao"`_
 
 
-Colocamos a nossa alteração em __`stagging`__ (vale para __branch principal__ também)
+Colocamos a nossa alteração em __stagging__ (vale para __branch principal__ também)
 _`git add .`_
 
 
