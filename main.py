@@ -4,9 +4,20 @@ from conta import Conta
 from titular import Titular
 from titularpf import titularPF
 from titularpj import titularPJ
+import json
+import jsonpickle
 
 if __name__ == '__main__':
     lista = []
+
+    arquivo = open('bg.json', 'r')
+    entrada = json.load(arquivo)
+    arquivo.close()
+    lista = jsonpickle.decode(entrada)
+
+#    for item in entrada:
+#        obj = jsonpickle.decode(item)
+#        lista.append(obj)
 
     print('-=-='*25)
     print('Olá, seja bem vindo ao banco 644!')
@@ -53,6 +64,11 @@ Menu Bancário
         opc = int(input('Sua opção: '))
         print('-=-='*25)
         if opc == 6:
+            saida = jsonpickle.encode(lista)
+            arquivo = open('bg.json', 'w')
+            json.dump(saida,arquivo)
+            arquivo.close()
+
             break	
 
         if opc == 1:
@@ -90,8 +106,33 @@ Menu Bancário
                     print('Conta não encontrada. Tente novamente!')
 
         if opc == 4:
-            print('Área de transferências em manutenção, sentimos muito pelo inconveniente!\n')
-            print('-=-='*25)
+            origem = int(input('Qual o documento da conta de origem? '))
+            destino = int(input('Qual o documento da conta para transferir? '))
+            busca = True
+            valor = float(input('Qual valor a transferir? R$ '))
+            for pessoa_orig in lista:
+                if pessoa_orig.getDoc() == origem:
+                    busca = False
+                    print(f'Seu saldo atual é: R$ {pessoa_orig.getConta().getSaldo()}')
+                    break
+                    
+            for pessoa_dest in lista:
+                if pessoa_dest.getDoc() == destino:
+                    busca = False
+                    break
+            if busca:
+                print('Conta não encontrada. Tente novamente!')
+
+            else:
+                if pessoa_orig.getConta().getSaldo() >= valor:
+                    pessoa_orig.getConta().sacar(valor)
+                    pessoa_dest.getConta().depositar(valor)
+                    print(f'Foi transferido para a conta do titular {pessoa_dest.getNome()} o valor de R$ {valor} reais.')
+                
+                else:
+                    print('Transferência não sucedida! ')
+#            print('Área de transferências em manutenção, sentimos muito pelo inconveniente!\n')
+#            print('-=-='*25)
 
         if opc == 5:
             print("Extrato!")

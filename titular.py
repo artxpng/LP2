@@ -1,3 +1,5 @@
+#coding utf-8
+
 from conta import Conta
 
 class Titular:
